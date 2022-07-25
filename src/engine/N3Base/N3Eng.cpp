@@ -261,7 +261,7 @@ bool CN3Eng::Init(BOOL bWindowed, HWND hWnd, DWORD dwWidth, DWORD dwHeight, DWOR
 	return true;
 }
 
-void CN3Eng::LookAt(__Vector3 &vEye, __Vector3 &vAt, __Vector3 &vUp)
+void CN3Eng::LookAt(const __Vector3 &vEye, const __Vector3 &vAt, const __Vector3 &vUp)
 {
 	__Matrix44 matView;
 	D3DXMatrixLookAtLH(&matView, &vEye, &vAt, &vUp);

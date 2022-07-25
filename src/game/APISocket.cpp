@@ -333,7 +333,7 @@ void CAPISocket::Receive()
 {
 	if (INVALID_SOCKET == m_hSocket || FALSE == m_bConnected)	return;
 
-	DWORD	dwPktSize;
+	DWORD	dwPktSize = 0;
 	DWORD	dwRead = 0;
 	int		count = 0;
 

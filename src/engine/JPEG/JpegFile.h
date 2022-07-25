@@ -302,15 +302,15 @@ public:
 								int nSampsPerRow,
 								struct jpeg_compress_struct cinfo,
 								JSAMPARRAY jsmpPixels,
-								char* pcsMsg);
+								std::string & pcsMsg);
 	BOOL			JpegFromDib(HANDLE hDib,		//Handle to DIB
 								int nQuality,		//JPEG quality (0-100)
 								std::string csJpeg, //Pathname to jpeg file
-								char* pcsMsg);		//Error msg to return
+								std::string & pcsMsg);		//Error msg to return
 	virtual BOOL	EncryptJPEG(HANDLE hDib,		//Handle to DIB
 								int nQuality,		//JPEG quality (0-100)
 								std::string csJpeg, //Pathname to jpeg file
-								char* pcsMsg);		//Error msg to return
+								std::string & pcsMsg);		//Error msg to return
 
 	BOOL			SaveFromDecryptToJpeg(std::string csKsc, std::string csJpeg);
 	virtual BOOL	DecryptJPEG(std::string csJpeg);

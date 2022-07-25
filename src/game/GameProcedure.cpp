@@ -438,7 +438,7 @@ bool CGameProcedure::CaptureScreenAndSaveToFile(const std::string& szFN)
 	if(hDIB)
 	{
 		int nQuality = 90;
-		char szBuf[256] = "";
+		std::string szBuf = "";
 
 		//운영자는 양질의 스크린 캡쳐를 할수 있게...
 		if(s_pPlayer->m_InfoBase.iAuthority == AUTHORITY_MANAGER)

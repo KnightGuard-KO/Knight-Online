@@ -1506,14 +1506,13 @@ BOOL CJpegFile::DibToSamps(HANDLE           hDib,
 				int                         nSampsPerRow,
 				struct jpeg_compress_struct cinfo,
 				JSAMPARRAY                  jsmpPixels,
-				char*                    pcsMsg)
+				std::string &               pcsMsg)
 {
 	//Sanity...
 	if (hDib == NULL    ||
-		nSampsPerRow <= 0 || pcsMsg == NULL) 
+		nSampsPerRow <= 0) 
 	{ 
-		if (pcsMsg !=NULL) 
-			pcsMsg="Invalid input data"; 
+		pcsMsg="Invalid input data";
 		return FALSE; 
 	} 
 	
@@ -1705,17 +1704,14 @@ BOOL CJpegFile::DibToSamps(HANDLE           hDib,
 BOOL CJpegFile::JpegFromDib(HANDLE     hDib,     //Handle to DIB
 				 int        nQuality, //JPEG quality (0-100)
 				 std::string    csJpeg,   //Pathname to jpeg file
-				 char*   pcsMsg)   //Error msg to return
+				 std::string &  pcsMsg)   //Error msg to return
 {
 	//Basic sanity checks...
 	if (nQuality < 0 || nQuality > 100 ||
 		hDib   == NULL ||
-		pcsMsg == NULL ||
 		csJpeg == "")
 	{
-		if (pcsMsg != NULL)
-			pcsMsg = "Invalid input data";
-		
+		pcsMsg = "Invalid input data";
 		return FALSE;
 	}
 	
@@ -1791,7 +1787,7 @@ BOOL CJpegFile::JpegFromDib(HANDLE     hDib,     //Handle to DIB
 	
 	jpeg_destroy_compress(&cinfo); //Free resources
 	
-	if(strlen(pcsMsg) > 0 )
+	if(pcsMsg.size() > 0 )
 		return FALSE;
 	else
 		return TRUE;
@@ -1800,7 +1796,7 @@ BOOL CJpegFile::JpegFromDib(HANDLE     hDib,     //Handle to DIB
 BOOL CJpegFile::EncryptJPEG(HANDLE hDib,			//Handle to DIB
 							int nQuality,			//JPEG quality (0-100)
 							std::string csJpeg,		//Pathname to jpeg file
-							char* pcsMsg)			//Error msg to return
+							std::string & pcsMsg)			//Error msg to return
 {
 	if(JpegFromDib(hDib, nQuality, csJpeg, pcsMsg) == FALSE)
 		return FALSE;

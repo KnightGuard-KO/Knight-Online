@@ -195,7 +195,7 @@ const __InfoPartyOrForce* CUIPartyOrForce::MemberInfoGetByIndex(int iIndex)
 
 CPlayerOther* CUIPartyOrForce::MemberGetByNearst(const __Vector3& vPosPlayer)
 {
-	if(m_Members.empty()) return false;
+	if(m_Members.empty()) return nullptr;
 
 	float fDistMin = FLT_MAX, fDistTmp = 0;
 	CPlayerOther* pTarget = NULL;
