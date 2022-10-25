@@ -276,7 +276,7 @@ bool CUIChat::Load(HANDLE hFile) {
     __ASSERT(m_pBtn_PartyOrForce, "NULL UI Component!!");
     //m_pBtn_KnightsOrGuild = GetChildByID("btn_knights_guild");    __ASSERT(m_pBtn_KnightsOrGuild, "NULL UI Component!!");
   //  m_pBtn_KnightsOrGuild = GetChildByID("btn_clan");
-    __ASSERT(m_pBtn_KnightsOrGuild, "NULL UI Component!!");
+ //   __ASSERT(m_pBtn_KnightsOrGuild, "NULL UI Component!!");
 
    m_pBtn_KnightsOrGuild = GetChildByID("btn_knights");
     __ASSERT(m_pBtn_KnightsOrGuild, "NULL UI Component!!");
